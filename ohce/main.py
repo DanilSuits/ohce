@@ -3,15 +3,15 @@ import time
 
 class Main:
     @staticmethod
-    def run(stdin, stdout, clock):
+    def run(*, stdin, stdout, epoch_seconds):
         pass
 
 
 def main():
     Main.run(
-        input,
-        print,
-        time.time
+        stdin=input,
+        stdout=print,
+        epoch_seconds=time.time
     )
 
 
