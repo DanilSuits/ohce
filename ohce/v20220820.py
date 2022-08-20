@@ -34,9 +34,15 @@ class V20220820:
             self.stdout_(lines, flush=True)
 
     class InteractiveLoop:
-        def __init__(self, readOneLine, flushLines):
-            pass
+        def __init__(self, read_one_line, flush_lines):
+            self.read_one_line = read_one_line.__call__
+            self.flush_lines = flush_lines.__call__
 
         def __call__(self):
-            pass
+            line = self.read_one_line()
+            self.flush_lines([
+                line,
+                line
+            ])
+
 
