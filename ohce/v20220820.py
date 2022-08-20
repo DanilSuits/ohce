@@ -39,7 +39,9 @@ class V20220820:
             self.flush_lines = flush_lines.__call__
 
         def __call__(self):
-            line = self.read_one_line()
-            self.flush_lines("%s\n%s" % (line, line))
+            first = self.read_one_line()
+            second = self.read_one_line()
+            self.flush_lines("%s\n%s" % (first, first))
+            self.flush_lines("%s\n%s" % (second, second))
 
 
