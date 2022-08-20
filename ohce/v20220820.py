@@ -1,4 +1,20 @@
+import time
+
+
 class V20220820:
+    @staticmethod
+    def live(stdin=input, stdout=print, epoch_seconds=time.time):
+        # TODO: notice that we haven't yet incorporated the
+        #  connection to the clock.
+        return V20220820.InteractiveLoop (
+            V20220820.ReadOneLine(
+                stdin
+            ),
+            V20220820.FlushLines(
+                stdout
+            ),
+        )
+
     class ReadOneLine:
         def __init__(self, stdin):
             self.stdin_ = stdin
@@ -20,13 +36,3 @@ class V20220820:
         def __call__(self):
             pass
 
-
-    @staticmethod
-    def interactive_loop(*, stdin, stdout, epoch_seconds):
-        read_one_line = V20220820.ReadOneLine(stdin)
-        flush_lines = V20220820.FlushLines(stdout)
-
-        return V20220820.InteractiveLoop(
-            read_one_line,
-            flush_lines
-        )
