@@ -31,7 +31,7 @@ class V20220820:
             self.stdout_ = stdout
 
         def __call__(self, lines):
-            self.stdout_(lines, flush=True)
+            self.stdout_(*lines, sep='\n', flush=True)
 
     class InteractiveLoop:
         def __init__(self, read_one_line, flush_lines):
@@ -41,7 +41,7 @@ class V20220820:
         def __call__(self):
             first = self.read_one_line()
             second = self.read_one_line()
-            self.flush_lines("%s\n%s" % (first, first))
-            self.flush_lines("%s\n%s" % (second, second))
+            self.flush_lines([first, first])
+            self.flush_lines([second, second])
 
 
