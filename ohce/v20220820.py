@@ -40,9 +40,6 @@ class V20220820:
 
         def __call__(self):
             line = self.read_one_line()
-            self.flush_lines([
-                line,
-                line
-            ])
+            self.flush_lines("%s\n%s" % (line, line))
 
 
