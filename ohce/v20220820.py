@@ -31,24 +31,12 @@ class V20220820:
             self.stdout_ = stdout
 
         def __call__(self, lines):
-            self.stdout_(
-                *lines,
-                **self.kwargs()
-            )
-
-        @staticmethod
-        def kwargs(*, sep='\n', flush=True):
-            return locals()
+            self.stdout_(lines, flush=True)
 
     class InteractiveLoop:
-        def __init__(self, read_one_line, flush_lines):
-            self.read_one_line = read_one_line.__call__
-            self.flush_lines = flush_lines.__call__
+        def __init__(self, readOneLine, flushLines):
+            pass
 
         def __call__(self):
-            first = self.read_one_line()
-            second = self.read_one_line()
-            self.flush_lines([first, first])
-            self.flush_lines([second, second])
-
+            pass
 
