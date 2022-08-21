@@ -1,4 +1,5 @@
 import time
+from ohce.finite_state_machine import FiniteStateMachine
 
 
 class V20220820:
@@ -10,7 +11,7 @@ class V20220820:
             V20220820.ReadOneLine.live(),
             V20220820.FlushLines.live(),
             V20220820.EpochSeconds.live(),
-            V20220820.FiniteStateMachine()
+            FiniteStateMachine()
         )
 
     class FiniteStateMachine:
