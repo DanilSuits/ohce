@@ -31,7 +31,14 @@ class V20220820:
             self.stdout_ = stdout
 
         def __call__(self, lines):
-            self.stdout_(*lines, sep='\n', flush=True)
+            self.stdout_(
+                *lines,
+                **self.kwargs()
+            )
+
+        @staticmethod
+        def kwargs(*, sep='\n', flush=True):
+            return locals()
 
     class InteractiveLoop:
         def __init__(self, read_one_line, flush_lines):
